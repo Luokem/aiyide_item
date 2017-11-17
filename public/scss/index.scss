@@ -1,0 +1,293 @@
+/* retset styless
+-----------------------------------*/
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, figure, legend, input, button, textarea, p, blockquote, th, td, select {
+    margin: 0;
+    padding: 0;
+}
+
+// .m_mycart .g_null i, .nav_fm .top_nav_bar .header_top_inner .c_operate section .e_link i, .nav_fm .search_box .search form .c_select span i, .nav_fm .search_box .search form .g_queryText i, .nav_fm .search_box .cart_btn i, a.t_openShowShare i, .u_goods h2 a, .g_shareCarousel .u_prev, .g_shareCarousel .u_next, a.u_option i, .u_video .e_play, .u_video .e_mute, .b_pick .l_sort_inner .c_dd_l i, .ab_pick .c_ategory header i {
+//     font-family: "iconfont" !important;
+//     -webkit-font-smoothing: antialiased;
+//     -webkit-text-stroke-width: 0.2px;
+//     -moz-osx-font-smoothing: grayscale;
+// }
+//
+// ddress, i, cite, code, dfn, em, var {
+//     font-style: normal;
+// }
+
+/* comman styless
+--------------------------------- */
+
+body {
+  font-size: 12px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+ul {
+  margin: 0;
+}
+
+li {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #7d7d7d;
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  &:link {
+    color: 333;
+    text-decoration:  none;
+    outline: none;
+  }
+}
+
+p {
+  padding: 0;
+}
+
+
+b {
+  font-weight: normal;
+}
+
+@mixin color($color: 7d7d7d){
+  color:$color;
+}
+
+/* Header
+--------------------------*/
+header {
+  height: 200px;
+}
+
+.top_navbar {
+  width: 100%;
+  height: 38px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #eee;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+
+ /*= l_account =*/
+  .l_account {
+    color: #7d7d7d;
+    height:38px;
+    line-height: 38px;
+    margin: 0 auto;
+    z-index: 1;
+    float: left;
+    b {
+      margin-right: 44px;
+    }
+    i {
+      margin: 0 6px;
+    }
+  }
+}
+
+/*= c_operate =*/
+
+.iconfont{
+        font-family:"iconfont";
+        font-size:12px;
+        font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+}
+
+%a {
+  display: inline-block;;
+  border-color: #ddd;
+  padding: 0 10px;
+  @include color;
+  outline: none;
+}
+
+%i {
+  color: #bfbfbf;
+  transition-property: color;
+  transiton-duration: .3s;
+}
+
+
+.c_operate {
+    height: 38px;
+    line-height: 38px;
+    float: right;
+    ul li {
+      float: left;
+    }
+    a {
+      transition-property: border-color, color, background-color;
+      transition-duration: .2s;
+      @extend %a;
+    }
+  i {
+    @extend %i;
+  }
+}
+/*= search_box =*/
+.search_nav {
+  height: 162px;
+  position: absolute;
+  top: 38px;
+  left: 52px;
+}
+
+.search_box {
+  height: 92px;
+  margin: 0 auto;
+  padding: 16px 0;
+  position: relative;
+}
+.logo {
+  width: 230px;
+  float: left;
+  a {
+    display: inline-block;
+  }
+}
+.logo span {
+  display: inline-block;
+  margin: 70px 0 0 7px;
+  font-size: 17px;
+  color: #87319a;
+}
+/*= shop_car  =*/
+.shop_car {
+  display: inline-block;
+  float: right;
+  position: relative;
+  z-index: 99;
+  margin-top: 26px;
+
+  a{
+    display: inline-block;
+    width: 132px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+
+    i {
+        margin-right: 2px;
+        font-size: 23px;
+        color: #ddd;
+        vertical-align: -2px;
+    }
+    b{
+      font-size: 15px;
+      color:#707070;
+    }
+    span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      border-radius: 10px 10px 10px 0;
+      background: #fc448c;
+      color: white;
+      text-align: center;
+      position: relative;
+      top: -20px;
+      right: -10px;
+    }
+  }
+}
+/*= search =*/
+@font-face {
+  font-family: 'iconfont';  /* project id 442383 */
+  src: url('//at.alicdn.com/t/font_442383_fud6ifryk7bhjjor.eot');
+  src: url('//at.alicdn.com/t/font_442383_fud6ifryk7bhjjor.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_442383_fud6ifryk7bhjjor.woff') format('woff'),
+  url('//at.alicdn.com/t/font_442383_fud6ifryk7bhjjor.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_442383_fud6ifryk7bhjjor.svg#iconfont') format('svg');
+}
+
+@mixin inputHeight {
+  height: 36px;
+  line-height: 36px;
+};
+
+.search   {
+  margin: 26px 0 0 -250px;
+  position: absolute;
+  left: 50%;
+  form{
+    @include inputHeight;
+    border: 1px solid #639;
+    border-radius: 2px;
+
+    span {
+      display: inline-block;
+      padding-left: 10px;
+      color: #8657b2;
+      font-size: 14px;
+    }
+
+    label {
+      position: relative;
+      i {
+        position: absolute;
+        top: -11px;
+        left: 0px;
+        z-index: 99;
+        width: 32px;
+        height: 36px;
+        line-height: 34px;
+        font-size: 18px;
+        color: #aaa;
+        text-align: right;
+        padding-right: 4px;
+      }
+    }
+    .inpts {
+      @include inputHeight;
+      width: 83px;
+      text-align: center;
+      border: 0;
+      font-size: 15px;
+      font-weight: bold;
+      color: #fff;
+      background: #639;
+      float: right;
+    }
+
+  }
+  .inptx {
+    @include inputHeight;
+    border: 0;
+    padding: 0 10px 0 36px;
+    width: 304px;
+    border: none;
+    outline: none;
+  }
+
+  ul {
+    margin-top: 2px;
+    padding-left: 10px;
+
+    li {
+      float: left;
+      margin-right: 6px;
+      @include color;
+    }
+  }
+
+}
