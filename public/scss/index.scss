@@ -5,6 +5,19 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
     margin: 0;
     padding: 0;
 }
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+ol, ul {
+  list-style: none;
+}
+
+$bigSize: 16px;
+
+@function remSize($px: 16px) {
+  @return $px /$bigSize * 1rem;
+}
 
 // .m_mycart .g_null i, .nav_fm .top_nav_bar .header_top_inner .c_operate section .e_link i, .nav_fm .search_box .search form .c_select span i, .nav_fm .search_box .search form .g_queryText i, .nav_fm .search_box .cart_btn i, a.t_openShowShare i, .u_goods h2 a, .g_shareCarousel .u_prev, .g_shareCarousel .u_next, a.u_option i, .u_video .e_play, .u_video .e_mute, .b_pick .l_sort_inner .c_dd_l i, .ab_pick .c_ategory header i {
 //     font-family: "iconfont" !important;
@@ -13,21 +26,23 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 //     -moz-osx-font-smoothing: grayscale;
 // }
 //
-// ddress, i, cite, code, dfn, em, var {
-//     font-style: normal;
-// }
+address, i, cite, code, dfn, em, var {
+    font-style: normal;
+}
 
 /* comman styless
 --------------------------------- */
 
 body {
-  font-size: 12px;
+  font-size: remSize(12px);
   color: #333;
   line-height: 1.5;
+  font-style: normal;
+  font-family: 微软雅黑, "Microsoft YaHei";
 }
 
 .container {
-  width: 1200px;
+  width: remSize(1200px);
   margin: 0 auto;
 }
 
@@ -43,12 +58,14 @@ li {
 a {
   text-decoration: none;
   color: #7d7d7d;
+  transition-property: border-color, color, background-color;
+  transition-duration: .2s;
   &:hover {
     text-decoration: none;
     cursor: pointer;
   }
   &:link {
-    color: 333;
+    color: #333;
     text-decoration:  none;
     outline: none;
   }
@@ -63,21 +80,33 @@ b {
   font-weight: normal;
 }
 
+/* SCSS styless
+----------------------*/
+
 @mixin color($color: 7d7d7d){
   color:$color;
+}
+
+@mixin height($height:remSize(36px)) {
+  height: $height;
+  line-height: $height;
+}
+@mixin liFloat($float: left,$marginRight: remSize(10px)) {
+  float: $float;
+  margin-right: $marginRight;
 }
 
 /* Header
 --------------------------*/
 header {
-  height: 200px;
+  height: remSize(200px);
 }
 
 .top_navbar {
   width: 100%;
-  height: 38px;
+  height: remSize(38px);
   background: #f8f8f8;
-  border-bottom: 1px solid #eee;
+  border-bottom: remSize(1px) solid #eee;
   position: fixed;
   top: 0;
   z-index: 999;
@@ -85,16 +114,15 @@ header {
  /*= l_account =*/
   .l_account {
     color: #7d7d7d;
-    height:38px;
-    line-height: 38px;
+    @include height(remSize(38px));
     margin: 0 auto;
     z-index: 1;
     float: left;
     b {
-      margin-right: 44px;
+      margin-right: remSize(44px);
     }
     i {
-      margin: 0 6px;
+      margin: 0 remSize(6px);
     }
   }
 }
@@ -103,17 +131,17 @@ header {
 
 .iconfont{
         font-family:"iconfont";
-        font-size:12px;
+        font-size:remSize(12px);
         font-style:normal;
         -webkit-font-smoothing: antialiased;
-        -webkit-text-stroke-width: 0.2px;
+        -webkit-text-stroke-width: remSize(0.2px);
         -moz-osx-font-smoothing: grayscale;
 }
 
 %a {
   display: inline-block;;
   border-color: #ddd;
-  padding: 0 10px;
+  padding: 0 remSize(10px);
   @include color;
   outline: none;
 }
@@ -124,10 +152,14 @@ header {
   transiton-duration: .3s;
 }
 
+%a_transition {
+  transition-property:  border-color, color, background-color;
+  transition-duration: .2s;
+}
+
 
 .c_operate {
-    height: 38px;
-    line-height: 38px;
+  @include height(remSize(38px));
     float: right;
     ul li {
       float: left;
@@ -143,20 +175,20 @@ header {
 }
 /*= search_box =*/
 .search_nav {
-  height: 162px;
+  width: 100%;
+  height: remSize(162px);
   position: absolute;
-  top: 38px;
-  left: 52px;
+  top: remSize(38px);
 }
 
 .search_box {
-  height: 92px;
+  height: remSize(92px);
   margin: 0 auto;
-  padding: 16px 0;
+  padding: remSize(16px) 0;
   position: relative;
 }
 .logo {
-  width: 230px;
+  width: remSize(230px);
   float: left;
   a {
     display: inline-block;
@@ -164,8 +196,8 @@ header {
 }
 .logo span {
   display: inline-block;
-  margin: 70px 0 0 7px;
-  font-size: 17px;
+  margin: remSize(70px) 0 0 remSize(7px);
+  font-size: remSize(20px);
   color: #87319a;
 }
 /*= shop_car  =*/
@@ -174,39 +206,37 @@ header {
   float: right;
   position: relative;
   z-index: 99;
-  margin-top: 26px;
+  margin-top: remSize(26px);
 
   a{
     display: inline-block;
-    width: 132px;
-    height: 36px;
-    line-height: 36px;
+    width: remSize(132px);
+    @include height(rem(36px));
     text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 2px;
+    border: remSize(1px) solid #ddd;
+    border-radius: remSize(2px);
 
     i {
         margin-right: 2px;
-        font-size: 23px;
+        font-size: remSize(23px);
         color: #ddd;
-        vertical-align: -2px;
+        vertical-align: remSize(-2px);
     }
     b{
-      font-size: 15px;
+      font-size: remSize(15px);
       color:#707070;
     }
     span {
       display: inline-block;
-      width: 20px;
-      height: 20px;
-      line-height: 20px;
-      border-radius: 10px 10px 10px 0;
+      width: remSize(20px);
+      @include  height(remSize(20px));
+      border-radius: remSize(10px) remSize(10px) remSize(10px) 0;
       background: #fc448c;
       color: white;
       text-align: center;
       position: relative;
-      top: -20px;
-      right: -10px;
+      top: remSize(-20px);
+      right: remSize(-10px);
     }
   }
 }
@@ -220,49 +250,45 @@ header {
   url('//at.alicdn.com/t/font_442383_fud6ifryk7bhjjor.svg#iconfont') format('svg');
 }
 
-@mixin inputHeight {
-  height: 36px;
-  line-height: 36px;
-};
 
 .search   {
-  margin: 26px 0 0 -250px;
+  margin: remSize(26px) 0 0 remSize(-250px);
   position: absolute;
   left: 50%;
   form{
-    @include inputHeight;
-    border: 1px solid #639;
+    @include height;
+    border: remSize(1px) solid #639;
     border-radius: 2px;
 
     span {
       display: inline-block;
-      padding-left: 10px;
+      padding-left: remSize(10px);
       color: #8657b2;
-      font-size: 14px;
+      font-size: remSize(14px);
     }
 
     label {
       position: relative;
       i {
         position: absolute;
-        top: -11px;
+        top: remSize(-11px);
         left: 0px;
         z-index: 99;
-        width: 32px;
-        height: 36px;
-        line-height: 34px;
-        font-size: 18px;
+        width: remSize(32px);
+        height: remSize(36px);
+        line-height: remSize(34px);
+        font-size: remSize(18px);
         color: #aaa;
         text-align: right;
-        padding-right: 4px;
+        padding-right: remSize(4px);
       }
     }
     .inpts {
-      @include inputHeight;
-      width: 83px;
+      @include height;
+      width: remSize(83px);
       text-align: center;
       border: 0;
-      font-size: 15px;
+      font-size: remSize(15px);
       font-weight: bold;
       color: #fff;
       background: #639;
@@ -271,23 +297,425 @@ header {
 
   }
   .inptx {
-    @include inputHeight;
+    @include height;
     border: 0;
-    padding: 0 10px 0 36px;
-    width: 304px;
+    padding: 0  remSize(10px) 0 remSize(36px);
+    width: remSize(304px);
     border: none;
     outline: none;
   }
 
   ul {
-    margin-top: 2px;
-    padding-left: 10px;
+    margin-top: remSize(2px);
+    padding-left: remSize(10px);
 
     li {
-      float: left;
-      margin-right: 6px;
+      @include liFloat(left,remSize(6px));
       @include color;
     }
   }
 
+}
+
+/*= main_nav_bar =*/
+.main_nav_bar {
+  @include  height(remSize(38px));
+  background: #663399;
+}
+.navigation {
+  >ul >li {
+    @include liFloat(left);
+    @include height(remSize(38px));
+    a {
+      @include height(remSize(38px));
+      color: #fff;
+      font-size: remSize(14px);
+      display: block;
+      width: remSize(110px);
+      margin: 0 auto;
+      text-align: center;
+      transiton-property: border-color, color, background-color;
+      transition: 0.2s;
+    }
+
+    &:first-child a {
+      width: remSize(230px);
+      z-index: 1;
+      background: #ee2a7b;
+    }
+  }
+}
+
+/* start body
+------------------------*/
+.firstScreen {
+  margin-top: remSize(12px);
+  zoom: 1;
+
+  /*= leftDiv =*/
+  .leftDiv {
+    float: left;
+    width: remSize(922px);
+    #myCatalogCtn2 {
+      width: remSize(228px);
+      height: remSize(386px);
+      overflow: hidden;
+      margin: remSize(-12px) remSize(10px) 0 0;
+      border: 1px solid #dbdbdb;
+      border-top: 0;
+      padding-top: remSize(9px);
+      float: left;
+
+      li {
+        padding: 0 remSize(17px);
+        display: list-item;
+        text-align: -webkit-match-parent;
+
+        h3 {
+          @include  height(remSize(26px));
+          margin: remSize(4px) 0 remSize(2px) 0;
+          font-size: remSize(16px);
+          color: #453555;
+        }
+        div {
+          border-bottom: 1px solid #eee;
+          overflow: hidden;
+          padding: 0 0 remSize(4px);
+          line-height: remSize(22px);
+          zoom: 1;
+
+        }
+        a {
+          color: #646464;
+          margin: 0 remSize(7px);
+          height: remSize(22px);
+          float: left;
+          white-space: nowrap;
+        }
+
+        &:not(:first-child) {
+          margin-top: remSize(6px);
+        }
+        &:last-child div {
+          border: none;
+        }
+      }
+
+    }
+
+  }
+  /*= center =*/
+  main .center {
+    float: left;
+    margin-left: remSize(12px);
+  }
+
+  /*= carousel =*/
+  .focusing {
+    width: remSize(670px);
+    height: remSize(240px);
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+
+    .list {
+      display: block;
+      position: absolute;
+
+      li {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        a {
+          width: remSize(670px);
+          height: remSize(240px);
+          display: block;
+          color: #333;
+          text_decoration: none;
+          outline: none;
+        }
+      }
+    }
+
+    .page {
+      position: absolute;
+      right: remSize(13px);
+      bottom: remSize(8px);
+      z-index: 99;
+      li {
+        margin-left: remSize(5px);
+        float: left;
+        width: remSize(22px);
+        height: remSize(22px);
+        color: #fff;
+        background-color: #c2c2c2;
+        border-radius: 50%;
+        a {
+          display: block;
+          text-align: center;
+          font: remSize(14px)/remSize(22px) "\5FAE\8F6F\96C5\9ED1";
+        }
+
+      }
+      .focus {
+          background-color: #ee2a7b;
+      }
+    }
+  }
+
+  /*= center theme =*/
+  .theme {
+    width: remSize(668px);
+    height: remSize(142px);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #dbdbdb;
+    z-index: 0;
+  }
+  .theme {
+    a.lr {
+      width: remSize(22px);
+      height: remSize(24px);
+      background: url(../images/index/lr.png) 0 0;
+      display: block;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      margin-top: remSize(-12px);
+      z-index: 9;
+      @extend %a_transition;
+    }
+    a.lr1 {
+      left: remSize(8px);
+      &:hover {
+      background-position: 0 remSize(-24px);
+      }
+    }
+    a.lr2 {
+      right: remSize(8px);
+      background-position: remSize(-22px) 0;
+      &:hover {
+        background-position: remSize(-22px) remSize(-24px);
+      }
+    }
+
+    #iTheme {
+      width: 99999px;
+      display: block;
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      overflow: hidden;
+      li {
+        float: left;
+        border-right: 1px solid #dbdbdb;
+      }
+    }
+  }
+}
+/*= recommend =*/
+.recomend {
+  width: remSize(910px);
+  padding: remSize(10px) 0 0;
+  overflow: hidden;
+  float: left;
+  clear: both;
+
+  h1 {
+    font: remSize(18px)/remSize(26px) "\5FAE\8F6F\96C5\9ED1";
+    border-bottom: remSize(2px) solid #000;
+  }
+}
+
+.l_activity {
+  position: relative;
+  height: remSize(226px);
+  overflow: hidden;
+
+  $marginLeft: 0px remSize(334px)  remSize(526px) remSize(718px);
+  $hoverMarginLeft: 0px remSize(192px) remSize(384px)  remSize(576px);
+  a {
+    position: absolute;
+    height: 100%;
+    // transition-property:  margin-left;
+    // transition-duration: .2s;
+    // transition: all 0.2s ease-in;
+    &:hover {
+      margin-left: 100px;
+    }
+
+    &:nth-child(1) {
+      margin-left: nth($marginLeft, 1);
+      &:hover {
+        margin-left: nth($hoverMarginLeft,1);
+      }
+    }
+
+    &:nth-child(2) {
+      margin-left: nth($marginLeft,2);
+      &:hover {
+        margin-left: nth($hoverMarginLeft, 2);
+      }
+    }
+    &:nth-child(3) {
+      margin-left: nth($marginLeft,3);
+      &:hover {
+        margin-left: nth($hoverMarginLeft,3);
+      }
+    }
+    &:nth-child(4) {
+      margin-left: nth($marginLeft,4);
+      &:hover {
+        margin-left: nth($hoverMarginLeft,4);
+      }
+    }
+
+    img {
+      width:  remSize(334px);
+      height: 100%;
+      display: block;
+    }
+
+  }
+}
+
+  /*= announcement =*/
+  .announcement {
+    float: right;
+    width: remSize(276px);
+    height: remSize(300px);
+    border: 1px solid #d5d5d5;
+    padding-bottom: 327px;
+  }
+
+.m_experience {
+  h3 {
+    font-size: remSize(14px);
+    font-weight: bold;
+    background: #ececec;
+    line-height: remSize(30px);
+    padding-left: remSize(12px);
+    border-bottom: remSize(1px) solid #d5d5d5;
+  }
+}
+
+  .l_survey {
+    padding: remSize(16px) remSize(12px);
+    section {
+      padding-left: remSize(63px);
+      &:first-child {
+        padding-bottom: remSize(16px);
+      }
+    }
+    .e_img {
+      float: left;
+      margin-left: remSize(-63px);
+    }
+    h4 {
+      font-size: remSize(14px);
+      a {
+        color: #ee2a7b;
+      }
+    }
+}
+
+/*= 选项卡=*/
+  .letters {
+    overflow: hidden;
+    ol {
+      margin: 0 remSize(-2px);
+      background-color: #ececec;
+      border: solid #d5d5d5;
+      border-width: remSize(1px);
+      font-size: remSize(14px);
+      overflow: hidden;
+      border-bottom: none;
+      li {
+        @include height(remSize(28px));
+        text-align: center;
+        float: left;
+        a {
+          display: block;
+          padding: 0 remSize(10px);
+          height: 100%;
+        }
+      }
+      li.focus {
+        margin: 0 0 remSize(-1px);
+        height: remSize(29px);
+        border: solid #d5d5d5;
+        border-width: 0 remSize(1px);
+        border-bottom: none;
+
+        a {
+          color: #ee2a7b;
+          background: #fff;
+        }
+      }
+    }
+    ul {
+      padding: remSize(14px) remSize(12px) remSize(10px) remSize(12px);
+      li {
+        height: remSize(72px);
+        overflow: hidden;
+         a {
+           display: block;
+           @include height(remSize(24px));
+           overflow: hidden;
+           }
+         }
+          i {
+            font-family: "\5B8B\4F53";
+            color: #ee2a7b;
+            margin-right: remSize(6px);
+          }
+        }
+      }
+/*= 小轮播图 =*/
+.u_toggle {
+  border-top: remSize(1px) solid #d5d5d5;
+  height: remSize(150px);
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+
+  %liHeight  {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  .list {
+    @extend %liHeight;
+    li {
+      @extend %liHeight;
+      top: 0;
+      left: 0;
+
+      a {
+        @extend %liHeight;
+        display: block;
+      }
+    }
+  }
+  .page {
+    position: absolute;
+    right: remSize(13px);
+    bottom: remSize(8px);
+    z-index: 99;
+    li {
+      float: left;
+      margin-left: 6px;
+      background-color: #c2c2c2;
+      a {
+        width:8px;
+        height: 8px;
+        color: #fff;
+        display: block;
+      }
+    }
+    li.focus {
+      background:#ee2a7b;
+    }
+  }
 }
