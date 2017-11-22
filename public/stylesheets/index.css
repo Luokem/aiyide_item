@@ -54,8 +54,21 @@ p {
 b {
   font-weight: normal; }
 
+.u_toggle.s_h330, .u_toggle.s_h254, .u_toggle.s_h455, .main_item .e_goodsImg, .m_related {
+  border: 1px solid #d5d5d5; }
+
+.u_toggle.s_h330, .u_toggle.s_h254, .u_toggle.s_h455 {
+  float: left;
+  border-width: 0 1px 1px 0;
+  width: 401px; }
+
 /* SCSS styless
 ----------------------*/
+.l_activity.s_big {
+  position: relative;
+  overflow: hidden; }
+
+/*= 轮播图样式 =*/
 /* Header
 --------------------------*/
 header {
@@ -271,6 +284,7 @@ header {
 .firstScreen {
   margin-top: 0.75rem;
   zoom: 1;
+  overflow: hidden;
   /*= leftDiv =*/
   /*= center =*/
   /*= carousel =*/
@@ -393,20 +407,21 @@ header {
       border-right: 1px solid #dbdbdb; }
 
 /*= recommend =*/
-.recomend {
+.recommend {
   width: 56.875rem;
   padding: 0.625rem 0 0;
   overflow: hidden;
   float: left;
   clear: both; }
-  .recomend h1 {
-    font: 0.6923076923 "微软雅黑";
+  .recommend h1 {
+    font: 1.125rem "微软雅黑";
     border-bottom: 0.125rem solid #000; }
 
 .l_activity {
   position: relative;
   height: 14.125rem;
-  overflow: hidden; }
+  overflow: hidden;
+  width: 56.875rem; }
   .l_activity a {
     position: absolute;
     height: 100%; }
@@ -509,7 +524,6 @@ header {
 
 /*= 小轮播图 =*/
 .u_toggle {
-  border-top: 0.0625rem solid #d5d5d5;
   height: 9.375rem;
   position: relative;
   z-index: 0;
@@ -530,14 +544,130 @@ header {
     z-index: 99; }
     .u_toggle .page li {
       float: left;
-      margin-left: 6px;
+      margin-left: 0.375rem;
       background-color: #c2c2c2; }
       .u_toggle .page li a {
-        width: 8px;
-        height: 8px;
+        width: 0.5rem;
+        height: 0.5rem;
+        line-height: 0.5rem;
         color: #fff;
         display: block; }
     .u_toggle .page li.focus {
       background: #ee2a7b; }
+
+/*= 结束小轮播图 =*/
+.e_bestSeller img {
+  display: block;
+  transition: opacity 0.2 ease-in; }
+  .e_bestSeller img:hover {
+    opacity: 0.8; }
+
+/*= main_item =*/
+.main_item {
+  margin-top: 1.25rem; }
+
+.l_itemHeader {
+  height: 1.75rem;
+  line-height: 1.75rem; }
+  .l_itemHeader h1 {
+    float: left;
+    font-size: 1.125rem; }
+  .l_itemHeader section {
+    float: right;
+    color: #333;
+    line-height: 1.5;
+    font-style: normal;
+    font-family: 微软雅黑, "Microsoft YaHei"; }
+    .l_itemHeader section a {
+      display: inline-block;
+      margin-left: 1rem; }
+    .l_itemHeader section .e_more {
+      background: #ff5b35;
+      width: 6rem;
+      height: 1.25rem;
+      line-height: 1.25rem;
+      text-align: center; }
+
+.l_itemHeader.s_ora {
+  border-bottom: 0.125rem solid #ff5b35; }
+
+/*=l_activity =*/
+.l_activity.s_big {
+  height: 31.25rem;
+  width: 100%; }
+  .l_activity.s_big a {
+    position: absolute;
+    height: 100%; }
+  .l_activity.s_big img {
+    width: 25rem;
+    height: 100%;
+    display: block; }
+
+/*= banner=*/
+.banner {
+  margin: 1.375rem auto 0;
+  display: block;
+  width: 75rem; }
+  .banner img {
+    border: 0; }
+
+/*= header =*/
+.l_itemHeader.s_red {
+  border-bottom: 0.125rem solid #ee2a7b; }
+
+.m_related {
+  float: left;
+  border-width: 0 1px;
+  width: 12.125rem;
+  background: #f7f7f7; }
+
+.m_related_inner {
+  padding: 0 0.75rem;
+  height: 12.625rem; }
+  .m_related_inner .c_sort {
+    padding: 0.75rem 0;
+    text-align: center; }
+    .m_related_inner .c_sort:first-child {
+      border-bottom: 0.0625rem solid #d5d5d5; }
+  .m_related_inner .c_sort a {
+    display: inline-block;
+    margin: 0.125rem 0.75rem; }
+
+.l_promotion h5.s_gre {
+  color: #538900; }
+
+.l_promotion h5 {
+  margin-top: 0.375rem;
+  line-height: 2.75rem;
+  text-shadow: 0.0625rem 0.0625rem 0.125rem rgba(0, 0, 0, 0.2); }
+  .l_promotion h5 i {
+    margin-right: 0.25rem;
+    font-weight: bold; }
+  .l_promotion h5 b {
+    font-size: 0.875rem; }
+
+.l_promotion p {
+  line-height: 1.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+/*= 小轮播图 =*/
+.u_toggle.s_h254 {
+  height: 15.875rem; }
+
+/*= 结束=*/
+.main_item .e_goodsImg {
+  float: left;
+  overflow: hidden;
+  width: 200px;
+  border-width: 0 1px 1px 0; }
+
+.e_goodsImg.s_h254 {
+  height: 254px !important;
+  width: 199px; }
+
+.e_goodsImg.e_error {
+  width: 199px; }
 
 /*# sourceMappingURL=index.css.map */

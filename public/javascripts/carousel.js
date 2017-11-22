@@ -16,7 +16,7 @@ function carousel(lists, page,pageLiClass,time){
   @ index 表示索引
   */
 
-    console.log("hello");
+
     const imgCon=lists.children();
     imgCon.not(imgCon.eq(0)).hide();
     const picNumber = imgCon.length;
@@ -65,19 +65,3 @@ function carousel(lists, page,pageLiClass,time){
    }).trigger('mouseleave');
 
 }
-
-/*
---------------------------------------------*/
-
-// center 轮播图
-const lists1 = $(".focusing .list");
-const page1 = $('.focusing .page');
-const pageLiClass1 = "focus";
-
-carousel(lists1,page1,pageLiClass1,4000);
-
- // center 小轮播图
-const lists2 = $(".u_toggle .list");
-const page2 = $('.u_toggle .page');
-const pageLiClass2 = "focus";
-carousel(lists2,page2,pageLiClass2,7000);

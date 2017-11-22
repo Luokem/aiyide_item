@@ -1,39 +1,66 @@
-const l_activity = $(".l_activity");       //移动标签父元素
-const a = $(".l_activity a");             //要移动的元素
-const marginLeft = [0,334,526,718];       // 移动前元素margin-left大小
-var offsetLeft = 0;                       //移动标签margin-left变量
+
+/*
+ 功能: 一组图片左右滚动
+ @l_activity, 移动标签父元素
+ @elem,要移动的元素
+ @移动前元素elem的margin-left大小
+ @length, 要移动margin-left大小
+*/
+
+function animate(l_activity,elem,marginLeft,length) {
+    var offsetLeft =0;  //移动标签margin-left变量
+    //鼠标触发事件
+    l_activity.find("a").mouseover(function() {
+      var index = $(this).index();
+      changeMargetLeft(l_activity,elem,marginLeft,length,offsetLeft,index);
+
+    });
+}
+
+
 
 //显示移动
-function changeMargetLeft  (index) {
-        var f_length = l_activity.offset().left; //父元素相对文档坐标
-        offsetLeft = a.eq(index).offset().left;  //移动元素相对文档坐标
+function changeMargetLeft  (l_activity,elem,marginLeft,length,offsetLeft,index) {
+        var f_length = l_activity.offset().left; //父元素相对文档左边坐标
+        offsetLeft = elem.eq(index).offset().left;  //移动元素相对文档左边坐标
 
 
         //索引为0,其他元素都恢复原位
         if(index == 0) {
           for(let i=index+1;i<marginLeft.length;i++){
-            a.eq(i).animate({"margin-left": `${marginLeft[i]}px`},300,function() {
+            elem.eq(i).animate({"margin-left": `${marginLeft[i]}px`},300,function() {
           })
           }
           return;
         }//判断是否在原位,在原位,往左移动,margin-left减少
         else if(offsetLeft == (marginLeft[index]+f_length)) {
-          a.eq(index).animate({"margin-left": `${index * 192}px`},500,function() {
-        }
-      )}
+          for(let i=index;i>=0;i--){
+          elem.eq(i).animate({"margin-left": `${i * length}px`},500,function() {
+         }
+        )
+      }
+    }
       else {
        //不在原位, 往恢复原位
        for(let i=index+1;i<marginLeft.length;i++){
-         a.eq(i).animate({"margin-left": `${marginLeft[i]}px`},300,function() {
+         elem.eq(i).animate({"margin-left": `${marginLeft[i]}px`},300,function() {
        })
        }
       }
 
     }
 
-//鼠标触发事件
-$(".l_activity a").mouseover(function() {
-  var index = $(this).index();
-  changeMargetLeft(index);
 
-})
+/*
+ 功能: 实现光标放在图片上左晃动
+ @elem,要移动元素
+ @length, 左移动距离
+*/
+function smallMoveMargin (elem, length) {
+  console.log("helllo");
+  elem.hover(function(){
+      $(this).css("transform",`translate(${-length}px,0)`);
+  }, function() {
+     $(this).css("transform",`translate(0,0)`);
+  })
+}
