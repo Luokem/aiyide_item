@@ -57,10 +57,9 @@ function changeMargetLeft  (l_activity,elem,marginLeft,length,offsetLeft,index) 
  @length, 左移动距离
 */
 function smallMoveMargin (elem, length) {
-  console.log("helllo");
-  elem.hover(function(){
-      $(this).css("transform",`translate(${-length}px,0)`);
+  elem.hover(function(event){
+      $(this).find("img").css("margin",`0 1px 0 ${-length}px`);
   }, function() {
-     $(this).css("transform",`translate(0,0)`);
+     $(this).find("img").css("margin",`0 -2px 0 0`);
   })
 }

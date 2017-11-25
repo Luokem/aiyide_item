@@ -1,3 +1,20 @@
+/* 二维码
+-------------------------------*/
+const c_operate = $('.c_operate ul');
+const g_code = $('.g_code');
+const appCode = c_operate.find("li");
+
+appCode.mouseover(function() {
+  $(this).find(".g_code").css("display","block").animate({"top":"100%"},300,function() {
+      console.log("hello");
+      $(this).find("a").css({"border-width":"0 1px","border": "solid  #ddd","background-color":"red"});
+   })
+})
+.mouseleave(function() {
+  $(this).find(".g_code").css({"display":"none","top":"150%","background-color":"#f8f8f8"});
+})
+
+
 /* 选项卡 letters.j
 ----------------------*/
   //announcement  letter
@@ -27,7 +44,14 @@ const pageLiClass2 = "focus";
 const lists3 = $(".s_h254 .list");
 const page3 = $(".s_h254 .list").siblings(".page");
 const pageLiClass3 = "focus";
-carousel(lists3, page3, pageLiClass3, 5000);
+// carousel(lists3, page3, pageLiClass3, 5000);
+
+//营养, 小轮播图
+const lists4 = $(".s_h455 .list");
+const page4 = $(".s_h455 .list").siblings(".page");
+const pageLiClass4 = "focus";
+carousel(lists4, page4, pageLiClass4, 3000);
+
 
 
 /* animate.js
@@ -51,5 +75,5 @@ animate(l_activity2, a2, marginLeft2,length2);
 
 //美妆,营养, 图片晃动
 const e_goodsImg = $('.e_goodsImg');
-const e_length = 1;
+const e_length = 10;
 smallMoveMargin(e_goodsImg, e_length);

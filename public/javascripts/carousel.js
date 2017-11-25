@@ -16,7 +16,6 @@ function carousel(lists, page,pageLiClass,time){
   @ index 表示索引
   */
 
-
     const imgCon=lists.children();
     imgCon.not(imgCon.eq(0)).hide();
     const picNumber = imgCon.length;
@@ -63,5 +62,4 @@ function carousel(lists, page,pageLiClass,time){
        }
      }, `${time}`);
    }).trigger('mouseleave');
-
 }

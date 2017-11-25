@@ -12,6 +12,9 @@ h1, h2, h3, h4, h5, h6 {
 ol, ul {
   list-style: none; }
 
+fieldset, img {
+  border: 0; }
+
 address, i, cite, code, dfn, em, var {
   font-style: normal; }
 
@@ -62,13 +65,22 @@ b {
   border-width: 0 1px 1px 0;
   width: 401px; }
 
+.clearfix::after {
+  height: 0;
+  display: block;
+  visibility: hidden;
+  content: ".";
+  clear: both; }
+
+.clearfix {
+  *zoom: 1; }
+
 /* SCSS styless
 ----------------------*/
 .l_activity.s_big {
   position: relative;
   overflow: hidden; }
 
-/*= 轮播图样式 =*/
 /* Header
 --------------------------*/
 header {
@@ -83,6 +95,8 @@ header {
   top: 0;
   z-index: 999;
   /*= l_account =*/ }
+  .top_navbar a:hover {
+    color: #ae5eff; }
   .top_navbar .l_account {
     color: #7d7d7d;
     height: 2.375rem;
@@ -120,15 +134,49 @@ header {
   transition-property: border-color, color, background-color;
   transition-duration: .2s; }
 
+.s_hover {
+  position: relative; }
+
 .c_operate {
   height: 2.375rem;
   line-height: 2.375rem;
   float: right; }
   .c_operate ul li {
-    float: left; }
-  .c_operate a {
-    transition-property: border-color, color, background-color;
-    transition-duration: .2s; }
+    float: left;
+    position: relative; }
+  .c_operate ul li:nth-child(2) a:hover, .c_operate ul li:nth-child(3) a:hover {
+    border: 1px solid #ddd;
+    border-width: 0 1px 1px;
+    border-bottom: #fff;
+    background: #fff; }
+  .c_operate .g_code {
+    left: 0px;
+    padding: 0.875rem;
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 140%;
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    line-height: normal;
+    transition-property: opacity, visibility, transform, display;
+    transition-duration: .3s;
+    text-align: center;
+    line-height: 1;
+    background: #fff; }
+    .c_operate .g_code img {
+      width: 8.125rem;
+      height: 8.125rem; }
+    .c_operate .g_code big {
+      font-size: 0.9375rem;
+      line-height: 1.25rem;
+      display: block; }
+    .c_operate .g_code small {
+      display: block;
+      margin-top: 0.125rem;
+      width: 11em;
+      font-size: 0.8125rem;
+      line-height: 1.1875rem; }
 
 /*= search_box =*/
 .search_nav {
@@ -171,7 +219,7 @@ header {
     border: 0.0625rem solid #ddd;
     border-radius: 0.125rem; }
     .shop_car a i {
-      margin-right: 2px;
+      margin-right: 0.125rem;
       font-size: 1.4375rem;
       color: #ddd;
       vertical-align: -0.125rem; }
@@ -205,7 +253,7 @@ header {
     height: 2.25rem;
     line-height: 2.25rem;
     border: 0.0625rem solid #639;
-    border-radius: 2px; }
+    border-radius: 0.125rem; }
     .search form span {
       display: inline-block;
       padding-left: 0.625rem;
@@ -251,6 +299,8 @@ header {
       float: left;
       margin-right: 0.375rem;
       color: 7d7d7d; }
+      .search ul li a:hover {
+        color: #ae5eff; }
 
 /*= main_nav_bar =*/
 .main_nav_bar {
@@ -289,6 +339,8 @@ header {
   /*= center =*/
   /*= carousel =*/
   /*= center theme =*/ }
+  .firstScreen a:hover {
+    color: #ee2a7b !important; }
   .firstScreen .leftDiv {
     float: left;
     width: 57.625rem; }
@@ -426,7 +478,7 @@ header {
     position: absolute;
     height: 100%; }
     .l_activity a:hover {
-      margin-left: 100px; }
+      margin-left: 6.25rem; }
     .l_activity a:nth-child(1) {
       margin-left: 0px; }
       .l_activity a:nth-child(1):hover {
@@ -454,7 +506,7 @@ header {
   width: 17.25rem;
   height: 18.75rem;
   border: 1px solid #d5d5d5;
-  padding-bottom: 327px; }
+  padding-bottom: 20.4375rem; }
 
 .m_experience h3 {
   font-size: 0.875rem;
@@ -566,6 +618,7 @@ header {
 .main_item {
   margin-top: 1.25rem; }
 
+/*= 服饰 =*/
 .l_itemHeader {
   height: 1.75rem;
   line-height: 1.75rem; }
@@ -581,12 +634,16 @@ header {
     .l_itemHeader section a {
       display: inline-block;
       margin-left: 1rem; }
+      .l_itemHeader section a:hover {
+        color: #ff5b35; }
     .l_itemHeader section .e_more {
       background: #ff5b35;
       width: 6rem;
       height: 1.25rem;
       line-height: 1.25rem;
       text-align: center; }
+      .l_itemHeader section .e_more:hover {
+        color: #fff; }
 
 .l_itemHeader.s_ora {
   border-bottom: 0.125rem solid #ff5b35; }
@@ -611,15 +668,17 @@ header {
   .banner img {
     border: 0; }
 
-/*= header =*/
+/*=  美妆 =*/
 .l_itemHeader.s_red {
   border-bottom: 0.125rem solid #ee2a7b; }
 
 .m_related {
   float: left;
-  border-width: 0 1px;
+  border-width: 0 1px 0 0;
   width: 12.125rem;
   background: #f7f7f7; }
+  .m_related a:hover {
+    color: #ee2a7b; }
 
 .m_related_inner {
   padding: 0 0.75rem;
@@ -633,8 +692,8 @@ header {
     display: inline-block;
     margin: 0.125rem 0.75rem; }
 
-.l_promotion h5.s_gre {
-  color: #538900; }
+.l_promotion h5.s_red {
+  color: #ee2a7b; }
 
 .l_promotion h5 {
   margin-top: 0.375rem;
@@ -660,14 +719,158 @@ header {
 .main_item .e_goodsImg {
   float: left;
   overflow: hidden;
-  width: 200px;
-  border-width: 0 1px 1px 0; }
+  width: 12.5rem;
+  border-width: 0 0.0625rem 0.0625rem 0; }
+  .main_item .e_goodsImg img {
+    transition-property: margin;
+    transition-duration: .1s; }
 
 .e_goodsImg.s_h254 {
-  height: 254px !important;
-  width: 199px; }
+  height: 15.875rem !important;
+  width: 12.4375rem; }
 
 .e_goodsImg.e_error {
-  width: 199px; }
+  width: 12.4375rem; }
+
+/*= 营养 =*/
+.l_itemHeader.s_gre {
+  border-bottom: 0.125rem solid #538900; }
+
+.s_gre a:hover {
+  color: #538900; }
+
+h5.s_gre {
+  color: #538900; }
+
+.s_w48 {
+  width: 3rem;
+  height: 1.125rem; }
+
+/*= 小轮播图=*/
+.u_toggle.s_h455 {
+  height: 28.4375rem; }
+
+/*结束*/
+/* html footer
+---------------------------------*/
+.YDJfooter {
+  width: 100%;
+  padding: 4.375rem 0 6.25rem; }
+  .YDJfooter a:hover {
+    color: #ee2a7b; }
+
+/*= separate1 =*/
+.separate {
+  border-top: 0.125rem solid #dbddde; }
+
+.helper {
+  width: 75rem;
+  height: 11rem;
+  padding: 1.125rem 0 0;
+  margin: 0 auto; }
+  .helper li {
+    float: left;
+    width: 7.5rem;
+    mrgin-right: 1.25rem; }
+  .helper h3 {
+    margin: 0 0 0.75rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 1.625rem; }
+  .helper a {
+    line-height: 1.5rem;
+    color: #5f5754;
+    display: block;
+    float: left;
+    clear: both;
+    white-space: nowrap; }
+  .helper .mobile, .helper .mobile * {
+    display: block; }
+    .helper .mobile a, .helper .mobile * a {
+      text-align: center; }
+    .helper .mobile img, .helper .mobile * img {
+      margin: 0 auto 0.3125rem; }
+    .helper .mobile .qrCode, .helper .mobile * .qrCode {
+      width: 5.75rem;
+      height: 5.75rem;
+      border: 1px solid #dddddd;
+      margin-top: 0.1875rem; }
+    .helper .mobile span, .helper .mobile * span {
+      text-align: center; }
+  .helper .touch {
+    margin-left: 1.0625rem;
+    width: 13.9375rem; }
+    .helper .touch > div {
+      margin: 0.625rem 0;
+      overflow: hidden;
+      zoom: 1; }
+      .helper .touch > div img {
+        float: left;
+        margin-top: 0.25rem; }
+      .helper .touch > div b {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: bold;
+        color: #727272; }
+      .helper .touch > div em {
+        display: block;
+        font: 1.5rem "微软雅黑";
+        color: #000; }
+    .helper .touch span {
+      display: block;
+      color: #727272;
+      line-height: 1.5rem; }
+
+/*= separate2 =*/
+.about {
+  margin: 1.5rem 0 0.75rem 0;
+  text-align: center; }
+  .about a {
+    padding: 0 0.5rem 0 0.75rem;
+    border-left: 0.0625rem solid #666; }
+    .about a:first-child {
+      border: 0 none; }
+  .about + p {
+    text-align: center; }
+    .about + p span:nth-child(2) {
+      margin-left: 1.25rem; }
+
+.verification, .security {
+  text-align: center; }
+
+.security {
+  overflow: hidden;
+  zoom: 1;
+  margin: auto;
+  width: 48.75rem; }
+  .security div {
+    width: 8.125rem;
+    float: left; }
+  .security i {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 1.75rem auto 0.5rem;
+    display: block;
+    background: url("../images/index/security.png"); }
+  .security .scrt1 {
+    background-position: 0 0; }
+  .security .scrt2 {
+    background-position: -4.5rem 0; }
+  .security .scrt3 {
+    background-position: -9rem 0; }
+  .security .scrt4 {
+    background-position: -13.5rem 0; }
+  .security .scrt5 {
+    background-position: -18rem 0; }
+  .security .scrt6 {
+    background-position: -22.5rem 0; }
+  .security span {
+    display: block;
+    text-align: center;
+    font: 0.875rem "微软雅黑"; }
+  .security em {
+    color: #663399; }
+  .security b {
+    display: block; }
 
 /*# sourceMappingURL=index.css.map */
