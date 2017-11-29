@@ -312,7 +312,8 @@ header {
   float: left;
   margin-right: 0.625rem;
   height: 2.375rem;
-  line-height: 2.375rem; }
+  line-height: 2.375rem;
+  margin-right: 0; }
   .navigation > ul > li a {
     height: 2.375rem;
     line-height: 2.375rem;
@@ -328,6 +329,8 @@ header {
     width: 14.375rem;
     z-index: 1;
     background: #ee2a7b; }
+.navigation ul li a:hover {
+  background: #ee2a7b; }
 
 /* start body
 ------------------------*/
@@ -872,5 +875,19 @@ h5.s_gre {
     color: #663399; }
   .security b {
     display: block; }
+
+.c_tools {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  margin-top: -119px;
+  z-index: 9999; }
+  .c_tools a {
+    display: block;
+    width: 60px;
+    height: 59px;
+    position: relative; }
+    .c_tools a:first-child {
+      margin-bottom: 1px; }
 
 /*# sourceMappingURL=index.css.map */

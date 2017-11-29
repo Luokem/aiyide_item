@@ -423,6 +423,8 @@ header {
   >ul >li {
     @include liFloat(left);
     @include height(remSize(38px));
+    margin-right: 0;
+
     a {
       @include height(remSize(38px));
       color: #fff;
@@ -439,6 +441,11 @@ header {
       width: remSize(230px);
       z-index: 1;
       background: #ee2a7b;
+    }
+  }
+  ul li a {
+    &:hover{
+         background: #ee2a7b;
     }
   }
 }
@@ -1181,4 +1188,21 @@ h5.s_gre {
     display: block;
   }
 
+}
+
+.c_tools {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  margin-top: -119px;
+  z-index: 9999;
+  a {
+    display: block;
+    width: 60px;
+    height: 59px;
+    position: relative;
+    &:first-child {
+      margin-bottom: 1px;
+    }
+  }
 }
